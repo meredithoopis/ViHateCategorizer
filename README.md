@@ -8,6 +8,7 @@ For simplicity, test the model by following this link: [lisa_model](https://hugg
 Navigate to the folder experimental_notebook and run the notebook. Create a virtual environment(Use python>==3.9)
 # Simple deployment
 Clone this repository and reate a virtual environment(python==3.9) 
+Run "pip install -r requirement.txt"
 
 The trained model: Download the models from this google drive link and put them in the models directory: [Link](https://drive.google.com/drive/folders/15iEfry_iSTiZk6UpWiVwoyv7kjpEtb6w)
 
