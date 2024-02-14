@@ -1,21 +1,33 @@
-# Vietnamese hatespeech classification 
+Vietnamese hatespeech classification 
+===============================
 A fine-tuned PhoBERT model on text classification with an accuracy score of 0.95
 
-# HuggingFace model card
+## HuggingFace model card
 For simplicity, test the model by following this link: [lisa_model](https://huggingface.co/lisagrace/hate_speech_bert)
 
-# Training the model
-Navigate to the folder experimental_notebook and run the notebook. Create a virtual environment(Use python>==3.9)
-# Simple deployment
-Clone this repository and reate a virtual environment(python==3.9) 
-Run "pip install -r requirement.txt"
+## Training the model
+Navigate to the folder experimental_notebook, create a virtual environment( Python 3.9), and run the notebook. 
 
-The trained model: Download the models from this google drive link and put them in the models directory: [Link](https://drive.google.com/drive/folders/15iEfry_iSTiZk6UpWiVwoyv7kjpEtb6w)
+## Simple deployment
+Clone this repository and create a virtual environment(Python 3.9) 
+1. Install required packages: 
+```bash
+pip install -r requirement.txt
+```
+2. The trained model: Download the models from this Google Drive link and put them in the models directory: [Link](https://drive.google.com/drive/folders/15iEfry_iSTiZk6UpWiVwoyv7kjpEtb6w)
 
-To start the elasticsearch service, change the directory to the main folder and run "docker compose up": To check the elasticsearch cluster, run "curl localhost:9200" 
+3. To start the elasticsearch service, change the directory to the main folder and run:
+```bash
+docker compose up -d
+```
+The service is available at "localhost:9200"
 
-Open another terminal, run the file main.py to use the API service. Go to "localhost:8000" to see the API 
-
-If you want to see the UI through streamlit, open another terminal and run the streamlit.py file. (Available through "localhost:8501"
-
-Type a comment, or post a small paragraph to see whether the text is clean, or it is hatespeech in a particular category 
+4. Open another terminal, to see the API run:
+```bash
+python main.py
+```
+If you want to see the UI through streamlit, open another terminal and run:  
+```bash
+python streamlit.py
+```
+Type a comment, or post a small paragraph to see whether the text is clean, or it is hatespeech in a particular category. 
