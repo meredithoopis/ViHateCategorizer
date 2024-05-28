@@ -31,6 +31,7 @@ Start the service:
 ```sh
 sudo service postgresql start
 sudo -i -u postgres
+psql
 ```
 
 Create a new database and the new user as well as providing necessary privileges to put into the .env file below: 
