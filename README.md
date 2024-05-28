@@ -13,7 +13,7 @@ This application is built using a combination of Python, Flask, Streamlit, and P
 - **PostgreSQL**: Manages the storage of user comments, classifications, and historical data.
 - **Deep Learning Model**: Utilizes PHOBert, as at the time of conducting the research, it achieved SOTA results on tasks on Vietnamese. However, as time passes, there might be superior models. 
 
-## How to Install
+## Detailed how-to
 
 To get started, follow these steps: 
 
@@ -25,7 +25,23 @@ Ensure you have the following installed on your system(I use WSL):
 - Docker Compose
 - PostgreSQL
 
-### Detailed how-to
+### Setting up a PostgreSQL database for the app: 
+In your terminal, do the following: 
+Start the service: 
+```sh
+sudo service postgresql start
+psql -U postgres
+```
+
+Create a new database and the new user as well as providing necessary privileges to put into the .env file below: 
+```sh
+CREATE USER new_user WITH PASSWORD 'password';
+ALTER USER new_user WITH SUPERUSER;
+CREATE DATABASE new_database;
+GRANT ALL PRIVILEGES ON DATABASE new_database TO new_user;
+```
+
+### Running the application 
 First, clone the repository: 
 
 ```sh
@@ -41,5 +57,32 @@ PASSWORD="your_username"
 PORT="5432"
 HOST="localhost"
 ```
+Build and run with Docker Compose: 
+```sh
+docker compose up 
+```
+
+## Usage: 
+Access the application for the interface: 
+```sh
+http://localhost:8501
+```
+### Classify a Comment
+Enter your username in the sidebar.\
+Type the comment you want to classify in the "Enter text to classify" text area.\
+Click the "Classify" button to get the hate speech category for the comment.\
+
+### View User History
+Enter your username in the sidebar.\
+Click the "Show History" button under the "User History" section to view past classifications.\
+
+### View Statistics
+Click the "Show Statistics" button under the "Statistics" section to view aggregated statistics of classifications.
+
+### API Endpoints
+The Flask API provides several endpoints for interacting with the application:
+- **POST /classify**: Classify a given text comment.
+- **GET /history**: Retrieve classification history for a specific user.
+- **GET /statistics**: Get aggregated classification statistics.
 
 
