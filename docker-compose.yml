@@ -1,27 +1,36 @@
-version: "3"
+version: "3.8"
 services:
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.8.0
+  # Database service
+  db: 
+    image: postgres:13 
+    environment: 
+      POSTGRES_DB: ${DB_NAME}            # Database name
+      POSTGRES_USER: ${USERNAME}         # Database username
+      POSTGRES_PASSWORD: ${PASSWORD}     # Database password
+
     volumes:
-      - ./es_data:/usr/share/elasticsearch/data
+      - pgdata:/var/lib/postgresql/data  # Volume for PostgreSQL data directory
+
+    # Exposing PostgreSQL port
+    ports: 
+      - "5432:5432"  # Host port:Container port
+  # Application service
+  app: 
+    build: 
+      context: .     
+      dockerfile: Dockerfile
     environment:
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - discovery.type=single-node
-      - xpack.security.enabled=false
-      - ELASTIC_PASSWORD=$ELASTIC_PASSWORD
-    ports:
-      - "9200:9200"
-    command: 
-      bash -c "
-      /usr/local/bin/docker-entrypoint.sh
-      elasticsearch && sleep 10 && python3 ./test_es.py"
-
+      DB_NAME: ${DB_NAME}      # Database name
+      USERNAME: ${USERNAME}    # Database username
+      PASSWORD: ${PASSWORD}    # Database password
+      HOST: db                 # Database host, set to the name of the db service
+      PORT: 5432               # Database port
+      BASE_URL: "http://localhost:5000"  # Base URL for the application
+    # Exposing application ports
+    ports: 
+      - "5000:5000"  
+      - "8501:8501" 
+    depends_on:
+      - db  # Ensure the db service is started before the app service
 volumes:
-  es_data:
-    driver: local
-
-
-
-
-
+  pgdata:  # Volume for PostgreSQL data

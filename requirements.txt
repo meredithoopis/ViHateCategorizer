@@ -1,0 +1,9 @@
+ipykernel 
+flask 
+psycopg2-binary
+transformers
+torch 
+flask-bcrypt
+requests
+streamlit
+pandas
