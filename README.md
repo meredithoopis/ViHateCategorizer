@@ -57,6 +57,11 @@ PASSWORD="your_username"
 PORT="5432"
 HOST="localhost"
 ```
+Run the following: 
+```sh
+pip install -r requirements.txt
+python db_connections.py 
+```
 Build and run with Docker Compose: 
 ```sh
 docker compose up 
