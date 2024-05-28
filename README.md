@@ -67,6 +67,15 @@ Build and run with Docker Compose:
 docker compose up 
 ```
 
+If you dont want to use Docker, run files individually: 
+```sh
+python app.py
+ ```
+Open a new terminal and run: 
+```sh
+streamlit run interface.py  
+```
+
 ## Usage: 
 Access the application for the interface: 
 ```sh
