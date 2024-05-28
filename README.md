@@ -46,7 +46,7 @@ First, clone the repository:
 
 ```sh
 git clone https://github.com/meredithoopis/ViHateCategorizer.git 
-cd hate-speech-classification-app
+cd ViHateCategorizer
 ```
 Next, nagivate to the .env file to fill in necessary environment variables
 ```sh
@@ -70,11 +70,11 @@ http://localhost:8501
 ### Classify a Comment
 Enter your username in the sidebar.\
 Type the comment you want to classify in the "Enter text to classify" text area.\
-Click the "Classify" button to get the hate speech category for the comment.\
+Click the "Classify" button to get the hate speech category for the comment.
 
 ### View User History
 Enter your username in the sidebar.\
-Click the "Show History" button under the "User History" section to view past classifications.\
+Click the "Show History" button under the "User History" section to view past classifications.
 
 ### View Statistics
 Click the "Show Statistics" button under the "Statistics" section to view aggregated statistics of classifications.
