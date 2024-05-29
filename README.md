@@ -11,7 +11,7 @@ This application is built using a combination of Python, Flask, Streamlit, and P
 - **Flask**: Serves as the backend API for handling requests, processing classifications, and interacting with the database.
 - **Streamlit**: Provides an intuitive and interactive web interface for users to input comments and view results.
 - **PostgreSQL**: Manages the storage of user comments, classifications, and historical data.
-- **Deep Learning Model**: Utilizes PHOBert, as at the time of conducting the research, it achieved SOTA results on tasks on Vietnamese. However, as time passes, there might be superior models.
+- **Deep Learning Model**: Utilizes PhoBERT, as at the time of conducting the research, it achieved SOTA results on tasks on Vietnamese. However, as time passes, there might be superior models.
 The already trained model can be found at: [Link](https://drive.google.com/drive/folders/15iEfry_iSTiZk6UpWiVwoyv7kjpEtb6w)
 
 ## Detailed how-to
